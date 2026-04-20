@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bento Harmony - Управление временем</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "rgba(255, 255, 255, 0.4)",
+                        "on-secondary-fixed-variant": "#393f8a",
+                        "on-secondary-fixed": "#070c5f",
+                        "on-tertiary": "#2D3250",
+                        "surface": "#F8F9FA",
+                        "inverse-on-surface": "#f1effd",
+                        "primary-container": "rgba(139, 147, 255, 0.1)",
+                        "tertiary": "#FFF1DC",
+                        "on-primary-container": "#3d49f5",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed": "#ffdbcf",
+                        "tertiary-container": "#FFF1DC",
+                        "secondary-fixed-dim": "#bec2ff",
+                        "secondary-container": "#FFD3B6",
+                        "on-surface-variant": "#7077A1",
+                        "on-primary-fixed-variant": "#141fdb",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#380d00",
+                        "on-error": "#ffffff",
+                        "primary-fixed": "#e0e0ff",
+                        "surface-bright": "#ffffff",
+                        "inverse-primary": "#bec2ff",
+                        "surface-container": "rgba(255, 255, 255, 0.6)",
+                        "secondary-fixed": "#e0e0ff",
+                        "on-primary-fixed": "#00036b",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#dad8e6",
+                        "on-tertiary-container": "#2D3250",
+                        "on-secondary-container": "#2D3250",
+                        "surface-tint": "#8B93FF",
+                        "secondary": "#A6E3E9",
+                        "inverse-surface": "#2f303a",
+                        "on-background": "#2D3250",
+                        "primary-fixed-dim": "#bec2ff",
+                        "on-secondary": "#2D3250",
+                        "primary": "#8B93FF",
+                        "outline-variant": "rgba(255, 255, 255, 0.8)",
+                        "tertiary-fixed-dim": "#ffb59b",
+                        "outline": "#7077A1",
+                        "surface-container-high": "rgba(255, 255, 255, 0.8)",
+                        "surface-variant": "rgba(255, 255, 255, 0.5)",
+                        "background": "#F8F9FA",
+                        "surface-container-highest": "#eeecfa",
+                        "on-tertiary-fixed-variant": "#812800",
+                        "error-container": "#ffdad6",
+                        "on-surface": "#2D3250"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "24px",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {},
+                    "fontFamily": {
+                        "headline": ["Outfit", "sans-serif"],
+                        "body": ["Plus Jakarta Sans", "sans-serif"],
+                        "label": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    "boxShadow": {
+                        'glass-ambient': '0 24px 48px -12px rgba(139, 147, 255, 0.15)',
+                        'glass-hover': '0 8px 16px -4px rgba(139, 147, 255, 0.2)',
+                        'button-glow': '0 4px 12px rgba(139, 147, 255, 0.4)'
+                    }
+                }
+            }
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer utilities {
+            .glass-panel {
+                @apply bg-surface-container backdrop-blur-[16px] border border-outline-variant shadow-glass-ambient;
+            }
+            .text-display {
+                @apply font-headline font-bold text-[32px] md:text-[48px] tracking-[-0.02em] text-on-surface leading-tight;
+            }
+            .text-title {
+                @apply font-headline font-semibold text-xl md:text-2xl text-on-surface;
+            }
+            .text-body {
+                @apply font-body text-base text-on-surface-variant leading-relaxed;
+            }
+            .text-label {
+                @apply font-label text-[13px] uppercase tracking-[0.05em] font-medium;
+            }
+        }
+    </style>
+</head>
+<body class="bg-background font-body text-on-surface antialiased min-h-screen flex flex-col relative overflow-x-hidden">
+<!-- Ambient Background Gradients -->
+<div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
+<div class="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-primary/10 blur-[100px] mix-blend-multiply"></div>
+<div class="absolute top-[20%] right-[-10%] w-[40vw] h-[40vw] rounded-full bg-secondary/20 blur-[120px] mix-blend-multiply"></div>
+<div class="absolute bottom-[-10%] left-[20%] w-[60vw] h-[60vw] rounded-full bg-tertiary/20 blur-[150px] mix-blend-multiply"></div>
+</div>
+<!-- Top Navigation (Shared Component) -->
+<header class="bg-white/60 dark:bg-slate-900/60 backdrop-blur-lg font-['Plus_Jakarta_Sans'] antialiased full-width top-0 sticky border-b border-white/80 dark:border-slate-800/50 shadow-[0_24px_48px_-12px_rgba(139,147,255,0.15)] flex justify-between items-center w-full px-6 py-4 z-40 transition-all">
+<div class="flex items-center gap-4">
+<span class="text-xl font-bold tracking-tight text-slate-800 dark:text-slate-100">Bento Harmony</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<!-- Navigation Links placeholder, suppressing due to landing page context -->
+<a class="text-slate-500 dark:text-slate-400 hover:bg-white/80 dark:hover:bg-slate-800/80 transition-all px-3 py-2 rounded-full font-medium" href="#">О продукте</a>
+<a class="text-slate-500 dark:text-slate-400 hover:bg-white/80 dark:hover:bg-slate-800/80 transition-all px-3 py-2 rounded-full font-medium" href="#">Функции</a>
+<a class="text-slate-500 dark:text-slate-400 hover:bg-white/80 dark:hover:bg-slate-800/80 transition-all px-3 py-2 rounded-full font-medium" href="#">Цены</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-indigo-400 dark:text-indigo-300 hover:bg-white/80 dark:hover:bg-slate-800/80 transition-all p-2 rounded-full active:scale-95 duration-200">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-semibold shadow-button-glow hover:opacity-90 transition-opacity">
+                Попробовать
+            </button>
+</div>
+</header>
+<main class="flex-grow flex flex-col items-center justify-center w-full max-w-7xl mx-auto px-6 py-12 md:py-24 gap-20">
+<!-- Hero Section -->
+<section class="w-full flex flex-col lg:flex-row items-center gap-16 relative">
+<div class="w-full lg:w-1/2 flex flex-col items-start gap-8 z-10">
+<div class="inline-flex items-center gap-2 bg-primary-container px-4 py-2 rounded-full border border-outline-variant">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-label text-primary">Ранний доступ</span>
+</div>
+<h1 class="text-display">
+                    Пространственный календарь для <span class="text-primary">вашего</span> ритма.
+                </h1>
+<p class="text-body text-lg max-w-xl">
+                    Bento Harmony переосмысливает управление временем. Организуйте свои задачи в прозрачные, модульные блоки, которые подстраиваются под ваши биологические циклы и пики продуктивности.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4 mt-4 w-full sm:w-auto">
+<button class="bg-primary text-on-primary px-8 py-4 rounded-full font-semibold shadow-button-glow hover:scale-[1.02] active:scale-95 transition-all text-center">
+                        Начать бесплатно
+                    </button>
+<button class="bg-surface-container-low backdrop-blur-md border border-outline-variant text-on-surface px-8 py-4 rounded-full font-semibold hover:bg-surface-container-high transition-all text-center flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">play_circle</span>
+                        Смотреть демо
+                    </button>
+</div>
+</div>
+<!-- Floating Dashboard Preview (Hero Image Area) -->
+<div class="w-full lg:w-1/2 relative h-[500px] perspective-1000">
+<!-- Main Dashboard Card -->
+<div class="absolute inset-0 glass-panel rounded-lg p-6 flex flex-col gap-6 transform lg:rotate-y-[-10deg] lg:rotate-x-[5deg] shadow-2xl transition-transform hover:rotate-0 duration-700 ease-out z-20">
+<div class="flex justify-between items-center border-b border-outline-variant pb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container">calendar_today</span>
+</div>
+<div>
+<h3 class="font-headline font-semibold text-on-surface">Сегодня</h3>
+<p class="text-label text-on-surface-variant">24 Октября, Вторник</p>
+</div>
+</div>
+<div class="flex -space-x-2">
+<img alt="Avatar" class="w-8 h-8 rounded-full border-2 border-white object-cover" data-alt="Portrait of young woman smiling naturally with soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAF9w-u_dcu-4pOsmhv0t2onvNAVLroWucmXl2gTVGWqJdNhayP6eDbVEkj76arS-ymapa-IFYsGnBDGa6UVfAFD0EjJ7QQqKZcRUcTUndFmHTXe5XvobSOxvAWs0ItMxAvvt9ZNEFLUOeO7CvLkBLZQVqyltEH9rwgapsY4GJzBM5g2Iiyzdn9VohDYrfU83SVHY7XMAb-AVtbht6hQgKbc-X16UcugdqzAtGhGNPuqk7DzKC69qKFvtyvhyiu34zZCrR_slHl7Vw"/>
+<div class="w-8 h-8 rounded-full bg-primary-container border-2 border-white flex items-center justify-center text-xs font-bold text-primary">+2</div>
+</div>
+</div>
+<!-- Bento Grid Inside Preview -->
+<div class="grid grid-cols-2 gap-4 flex-grow">
+<div class="bg-primary/5 rounded-xl p-4 border border-primary/20 flex flex-col justify-between">
+<div class="flex justify-between">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">task_alt</span>
+<span class="text-label text-primary">Высокий фокус</span>
+</div>
+<div>
+<h4 class="font-medium text-sm text-on-surface mb-1">Дизайн-ревью</h4>
+<p class="text-xs text-on-surface-variant">10:00 - 11:30</p>
+</div>
+</div>
+<div class="bg-secondary/10 rounded-xl p-4 border border-secondary/30 flex flex-col justify-between">
+<div class="flex justify-between">
+<span class="material-symbols-outlined text-teal-600">group</span>
+<span class="text-label text-teal-600">Синхрон</span>
+</div>
+<div>
+<h4 class="font-medium text-sm text-on-surface mb-1">Командный мит</h4>
+<p class="text-xs text-on-surface-variant">12:00 - 12:45</p>
+</div>
+</div>
+<div class="col-span-2 bg-tertiary-container rounded-xl p-4 border border-tertiary/50 flex items-center gap-4">
+<div class="w-12 h-12 rounded-full border-4 border-white shadow-sm flex items-center justify-center relative bg-white">
+<svg class="w-full h-full transform -rotate-90 text-orange-400 absolute inset-0" viewbox="0 0 36 36">
+<path class="text-gray-100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3"></path>
+<path class="text-current" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="60, 100" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+<span class="material-symbols-outlined text-orange-500 text-sm z-10" style="font-variation-settings: 'FILL' 1;">spa</span>
+</div>
+<div>
+<h4 class="font-medium text-sm text-on-surface">Время восстановления</h4>
+<p class="text-xs text-on-surface-variant">Рекомендуется перерыв 15 мин</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Floating Elements -->
+<div class="absolute -right-8 top-1/4 glass-panel rounded-full p-3 flex items-center gap-3 z-30 animate-[bounce_4s_infinite]">
+<span class="material-symbols-outlined text-green-500 bg-green-100 rounded-full p-2">check_circle</span>
+<span class="text-sm font-medium pr-2">Спринт закрыт</span>
+</div>
+<div class="absolute -left-4 bottom-1/4 glass-panel rounded-xl p-4 z-30 animate-[bounce_5s_infinite_0.5s]">
+<div class="w-32 h-2 bg-gray-200 rounded-full overflow-hidden">
+<div class="w-2/3 h-full bg-primary rounded-full"></div>
+</div>
+<p class="text-xs text-on-surface-variant mt-2 text-center">Продуктивность: 68%</p>
+</div>
+</div>
+</section>
+<!-- Features Bento Grid -->
+<section class="w-full flex flex-col gap-12">
+<div class="text-center max-w-2xl mx-auto flex flex-col gap-4">
+<h2 class="text-title text-3xl md:text-4xl">Модульный подход к вашему дню</h2>
+<p class="text-body">Откажитесь от жестких списков. Собирайте свой день как конструктор, учитывая приоритеты и уровень энергии.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[250px]">
+<!-- Card 1: Large Feature -->
+<div class="md:col-span-2 glass-panel rounded-[24px] p-8 flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute right-0 top-0 w-1/2 h-full bg-gradient-to-l from-primary/10 to-transparent pointer-events-none"></div>
+<div class="z-10 flex flex-col gap-4 max-w-md">
+<div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-2xl">auto_awesome</span>
+</div>
+<h3 class="text-title">Умное Расписание</h3>
+<p class="text-body">Алгоритмы Bento Harmony анализируют ваши привычки и предлагают оптимальные слоты для глубокой работы и встреч, избегая выгорания.</p>
+</div>
+<div class="absolute bottom-[-20px] right-[-20px] opacity-20 transform group-hover:scale-110 transition-transform duration-500">
+<span class="material-symbols-outlined text-[150px] text-primary">calendar_month</span>
+</div>
+</div>
+<!-- Card 2: Vertical Focus -->
+<div class="glass-panel rounded-[24px] p-8 flex flex-col justify-between relative overflow-hidden border-l-4 border-l-secondary">
+<div class="z-10 flex flex-col gap-4">
+<h3 class="text-title text-lg">Режимы Фокуса</h3>
+<p class="text-body text-sm">Блокируйте отвлекающие факторы одним кликом. Система сама отклонит неважные уведомления.</p>
+</div>
+<div class="mt-4 bg-secondary/20 rounded-full p-2 flex justify-center">
+<span class="material-symbols-outlined text-teal-700">center_focus_strong</span>
+</div>
+</div>
+<!-- Card 3: Small Info -->
+<div class="glass-panel rounded-[24px] p-8 flex flex-col justify-center items-center text-center gap-4">
+<div class="relative">
+<svg class="w-20 h-20 transform -rotate-90 text-tertiary-container" viewbox="0 0 36 36">
+<path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3"></path>
+<path class="text-orange-400" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="85, 100" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+<span class="absolute inset-0 flex items-center justify-center font-bold text-xl text-on-surface">85%</span>
+</div>
+<h3 class="font-semibold text-on-surface">Баланс энергии</h3>
+</div>
+<!-- Card 4: Horizontal Banner -->
+<div class="md:col-span-2 glass-panel rounded-[24px] p-8 flex flex-row items-center justify-between gap-6 border-l-4 border-l-primary">
+<div class="flex flex-col gap-3 max-w-sm">
+<span class="text-label text-primary">Интеграции</span>
+<h3 class="text-title text-xl">Синхронизация со всем</h3>
+<p class="text-body text-sm">Google Calendar, Notion, Slack. Всё в одном месте, без потери контекста.</p>
+</div>
+<div class="flex gap-4 opacity-50 flex-wrap justify-end">
+<span class="material-symbols-outlined text-4xl">cloud_sync</span>
+<span class="material-symbols-outlined text-4xl">api</span>
+<span class="material-symbols-outlined text-4xl">device_hub</span>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="w-full glass-panel rounded-[32px] p-12 md:p-16 text-center flex flex-col items-center gap-8 relative overflow-hidden my-12">
+<!-- Decorative blur background -->
+<div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 pointer-events-none"></div>
+<h2 class="text-display max-w-2xl relative z-10">
+                Готовы вернуть контроль над своим <span class="text-primary italic">временем</span>?
+            </h2>
+<p class="text-body max-w-xl relative z-10">
+                Присоединяйтесь к тысячам профессионалов, которые уже используют пространственное планирование для достижения больших результатов с меньшим стрессом.
+            </p>
+<div class="flex flex-col sm:flex-row gap-4 relative z-10 w-full sm:w-auto">
+<input class="px-6 py-4 rounded-full border border-outline-variant bg-white/50 backdrop-blur-sm focus:ring-2 focus:ring-primary focus:border-transparent outline-none flex-grow sm:w-80 font-body placeholder-on-surface-variant/50" placeholder="Ваш email" type="email"/>
+<button class="bg-primary text-on-primary px-8 py-4 rounded-full font-semibold shadow-button-glow hover:opacity-90 transition-opacity whitespace-nowrap">
+                    Получить доступ
+                </button>
+</div>
+<p class="text-label text-on-surface-variant mt-2 relative z-10">14 дней бесплатно. Кредитная карта не требуется.</p>
+</section>
+</main>
+<!-- Simple Footer -->
+<footer class="w-full border-t border-outline-variant/30 py-8 text-center text-on-surface-variant text-sm flex flex-col md:flex-row justify-center items-center gap-4 mt-auto glass-panel border-x-0 border-b-0 rounded-none">
+<p>© 2023 Bento Harmony. Все права защищены.</p>
+<div class="flex gap-4">
+<a class="hover:text-primary transition-colors" href="#">Политика конфиденциальности</a>
+<a class="hover:text-primary transition-colors" href="#">Условия использования</a>
+</div>
+</footer>
+</body></html>

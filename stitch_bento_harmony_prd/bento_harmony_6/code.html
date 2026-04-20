@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bento Harmony - Проекты</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Outfit:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #F8F9FA;
+            background-image: radial-gradient(at 0% 0%, hsla(240, 100%, 95%, 0.5) 0px, transparent 50%),
+                              radial-gradient(at 100% 100%, hsla(200, 100%, 90%, 0.5) 0px, transparent 50%);
+            background-attachment: fixed;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "rgba(255, 255, 255, 0.4)",
+                        "on-secondary-fixed-variant": "#393f8a",
+                        "on-secondary-fixed": "#070c5f",
+                        "on-tertiary": "#2D3250",
+                        "surface": "#F8F9FA",
+                        "inverse-on-surface": "#f1effd",
+                        "primary-container": "rgba(139, 147, 255, 0.1)",
+                        "tertiary": "#FFF1DC",
+                        "on-primary-container": "#3d49f5",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed": "#ffdbcf",
+                        "tertiary-container": "#FFF1DC",
+                        "secondary-fixed-dim": "#bec2ff",
+                        "secondary-container": "#FFD3B6",
+                        "on-surface-variant": "#7077A1",
+                        "on-primary-fixed-variant": "#141fdb",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#380d00",
+                        "on-error": "#ffffff",
+                        "primary-fixed": "#e0e0ff",
+                        "surface-bright": "#ffffff",
+                        "inverse-primary": "#bec2ff",
+                        "surface-container": "rgba(255, 255, 255, 0.6)",
+                        "secondary-fixed": "#e0e0ff",
+                        "on-primary-fixed": "#00036b",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#dad8e6",
+                        "on-tertiary-container": "#2D3250",
+                        "on-secondary-container": "#2D3250",
+                        "surface-tint": "#8B93FF",
+                        "secondary": "#A6E3E9",
+                        "inverse-surface": "#2f303a",
+                        "on-background": "#2D3250",
+                        "primary-fixed-dim": "#bec2ff",
+                        "on-secondary": "#2D3250",
+                        "primary": "#8B93FF",
+                        "outline-variant": "rgba(255, 255, 255, 0.8)",
+                        "tertiary-fixed-dim": "#ffb59b",
+                        "outline": "#7077A1",
+                        "surface-container-high": "rgba(255, 255, 255, 0.8)",
+                        "surface-variant": "rgba(255, 255, 255, 0.5)",
+                        "background": "#F8F9FA",
+                        "surface-container-highest": "#eeecfa",
+                        "on-tertiary-fixed-variant": "#812800",
+                        "error-container": "#ffdad6",
+                        "on-surface": "#2D3250"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {},
+                    "fontFamily": {
+                        "headline": ["Outfit", "sans-serif"],
+                        "body": ["Plus Jakarta Sans", "sans-serif"],
+                        "label": ["Plus Jakarta Sans", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-body text-on-surface antialiased min-h-screen flex flex-col md:flex-row">
+<!-- TopNavBar (Mobile Only) -->
+<nav class="md:hidden bg-white/60 dark:bg-slate-900/60 backdrop-blur-lg border-b border-white/80 dark:border-slate-800/50 shadow-[0_24px_48px_-12px_rgba(139,147,255,0.15)] full-width top-0 sticky flex justify-between items-center w-full px-6 py-4 z-40">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-2xl">menu</span>
+<span class="text-xl font-bold tracking-tight text-slate-800 dark:text-slate-100 font-headline">Bento Harmony</span>
+</div>
+<div class="flex items-center gap-3">
+<button class="p-2 rounded-full hover:bg-white/80 transition-all text-slate-500 active:scale-95 duration-200">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 rounded-full hover:bg-white/80 transition-all text-slate-500 active:scale-95 duration-200">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<img alt="Аватар пользователя" class="w-8 h-8 rounded-full border-2 border-white/80 object-cover ml-2" data-alt="close up portrait of a young professional woman with a soft smile, natural lighting, bright background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBokMIZrU52I8MXvETQIF8xFaXH3V71t8My77n_WJ0QFTyezcgUw7Zl8wFw7uw4QvsatFC8dkvim4Y7gXUQtHO3jGGN87YlCjrFH3P62o2IPVS74Jro5h1HsE5VbMFEEoG6S0S53kgc5aAGctpQEp4zSe25_96y97OS9i88aa45Xk5_lqCLhB19Z2nBT4ZXVJ2LMWZoRVB5N2aoAt7ickaLKFYBFuZ2ewyqS8VxiF0JG37jKlPUr0AI6mf_iaL629vcIKmX3WDflIU"/>
+</div>
+</nav>
+<!-- SideNavBar (Web Only) -->
+<aside class="hidden md:flex flex-col h-screen w-64 rounded-r-[24px] sticky left-0 top-0 bg-white/60 dark:bg-slate-900/60 backdrop-blur-xl border-r border-white/50 dark:border-slate-800/30 shadow-2xl shadow-indigo-100/20 py-8 px-4 space-y-2 z-40">
+<div class="px-4 mb-8 flex flex-col items-start">
+<span class="text-lg font-black text-slate-900 dark:text-white tracking-tight font-headline">Bento Harmony</span>
+<span class="text-xs text-on-surface-variant font-label mt-1 uppercase tracking-wider">Управление временем</span>
+</div>
+<nav class="flex-1 space-y-2 font-['Plus_Jakarta_Sans'] text-sm font-medium">
+<a class="flex items-center gap-4 px-4 py-3 rounded-xl text-slate-500 dark:text-slate-400 hover:text-indigo-400 hover:bg-white/40 transition-colors scale-100 active:scale-98" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                Дашборд
+            </a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-xl text-slate-500 dark:text-slate-400 hover:text-indigo-400 hover:bg-white/40 transition-colors scale-100 active:scale-98" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+                Календарь
+            </a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-xl text-slate-500 dark:text-slate-400 hover:text-indigo-400 hover:bg-white/40 transition-colors scale-100 active:scale-98" href="#">
+<span class="material-symbols-outlined">task_alt</span>
+                Задачи
+            </a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-xl bg-indigo-50/50 dark:bg-indigo-900/20 text-indigo-500 border-r-4 border-indigo-500 hover:bg-white/40 transition-colors scale-100 active:scale-98" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_tree</span>
+                Проекты
+            </a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-xl text-slate-500 dark:text-slate-400 hover:text-indigo-400 hover:bg-white/40 transition-colors scale-100 active:scale-98" href="#">
+<span class="material-symbols-outlined">analytics</span>
+                Аналитика
+            </a>
+</nav>
+<div class="mt-auto space-y-2 font-['Plus_Jakarta_Sans'] text-sm font-medium border-t border-outline-variant pt-4">
+<a class="flex items-center gap-4 px-4 py-3 rounded-xl text-slate-500 dark:text-slate-400 hover:text-indigo-400 hover:bg-white/40 transition-colors scale-100 active:scale-98" href="#">
+<span class="material-symbols-outlined">help</span>
+                Помощь
+            </a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-xl text-slate-500 dark:text-slate-400 hover:text-indigo-400 hover:bg-white/40 transition-colors scale-100 active:scale-98" href="#">
+<span class="material-symbols-outlined">logout</span>
+                Выйти
+            </a>
+<div class="flex items-center gap-3 px-4 pt-4 mt-2">
+<img alt="Логотип" class="w-10 h-10 rounded-full border-2 border-white/80 object-cover shadow-sm" data-alt="close up portrait of a young professional woman with a soft smile, natural lighting, bright background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgtZh-CyrEDfp3mpuTeDL9xUtd9MxjOd7uEer2Pu34FYDzfSbfvrZwQvt1Qc9IRAuDWQ2ujYnHYG-sHbOvZ3DeZYEAE9yjRsGVKFJXt2Xp0xb9I-ZFUx3hd-LgzEpf0OOixyv9FJ8H8As-ZX2BiZK3EhSp7NHzPofidzJsrRZBFNceewUYVNPyNUS5fLfRc-4ua2TN8nA92BKrhuNJmfM-hQjcAdS7lzhqog_jOG91zK7sOvpLpGX9oE9MlLjoERv6vabOa8QPWq4"/>
+<div class="flex flex-col">
+<span class="text-sm font-bold text-on-surface">Анна С.</span>
+<span class="text-xs text-on-surface-variant font-label">Менеджер</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="flex-1 p-6 md:p-10 lg:p-12 max-w-7xl mx-auto w-full z-10">
+<!-- Header Area -->
+<header class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+<div>
+<h1 class="font-headline text-[32px] font-bold tracking-[-0.02em] text-on-surface leading-tight mb-2">Проекты</h1>
+<p class="text-on-surface-variant font-body">Управляйте вашими текущими инициативами и отслеживайте прогресс команды.</p>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="bg-surface-container backdrop-blur-md border border-outline-variant text-on-surface rounded-full py-3 pl-12 pr-6 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all w-full md:w-64 placeholder:text-on-surface-variant/70 shadow-sm hover:bg-surface-container-high" placeholder="Поиск проектов..." type="text"/>
+</div>
+<button class="bg-primary text-on-primary font-bold py-3 px-6 rounded-full flex items-center gap-2 hover:opacity-90 transition-all shadow-[0_4px_12px_rgba(139,147,255,0.4)] hover:shadow-[0_8px_16px_rgba(139,147,255,0.5)] active:scale-95">
+<span class="material-symbols-outlined text-lg">add</span>
+                    Новый
+                </button>
+</div>
+</header>
+<!-- Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+<!-- Card 1: In Progress -->
+<article class="bg-surface-container backdrop-blur-[16px] border border-outline-variant rounded-[24px] p-6 shadow-[0_24px_48px_-12px_rgba(139,147,255,0.15)] hover:bg-surface-container-high transition-colors duration-300 flex flex-col group relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-2 bg-primary rounded-l-[24px] opacity-80"></div>
+<div class="flex justify-between items-start mb-6 pl-2">
+<span class="bg-primary-container text-on-primary-container px-3 py-1 rounded-full text-[13px] font-label uppercase tracking-widest font-semibold flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                        В процессе
+                    </span>
+<button class="text-on-surface-variant hover:text-on-surface transition-colors p-1 rounded-full hover:bg-white/40">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</div>
+<div class="mb-8 pl-2 flex-1">
+<h2 class="font-headline text-xl font-bold text-on-surface mb-2 group-hover:text-primary transition-colors">Редизайн сайта</h2>
+<p class="text-on-surface-variant text-sm leading-relaxed">Полное обновление визуального стиля и архитектуры корпоративного портала.</p>
+</div>
+<div class="pl-2 space-y-4">
+<div>
+<div class="flex justify-between text-sm mb-2">
+<span class="text-on-surface font-medium">Прогресс</span>
+<span class="text-primary font-bold">65%</span>
+</div>
+<div class="h-2 w-full bg-white/40 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full w-[65%] transition-all duration-1000 ease-out"></div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-outline-variant/50">
+<div class="flex -space-x-2">
+<img alt="Член команды" class="w-8 h-8 rounded-full border-2 border-white object-cover" data-alt="close up portrait of a young professional woman with a soft smile, natural lighting, bright background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIapMKDJZ9VYz-O_5cU4GEaNkQXscHIuhAUZWwNoWKq1vvW5VPqkP_AHI3KOPvWc3sFVRBsdpOMOww7lTQwOA-J05rmfObrpqLbr6VOJ_m5_yoTGPzu3yv3IEAUzRPybWa5hBBmozWzp1RB0E7DoVh0TKezJvRCklxTyILjQGf3rmGfQ0trK57Sf10x49nGlRN75fjgaMRzJOiiXar7ihMa20_1OeXbLzejwSR-oRW6XHVSn9y5cjt1j6mEZ7_F5kSmckwjkVV8Nk"/>
+<img alt="Член команды" class="w-8 h-8 rounded-full border-2 border-white object-cover" data-alt="portrait of an attractive young man with a slight stubble, warm natural light, casual professional attire" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeqV_vw8b0GMrqc9FNMZ6vWebPP1FFUOUPL99_Jc_tzCjgVbpFhbuxINk4UvKd3hBDoa7kX5XWa6Sf7pOZ763xdj4QJkxIXLSkmkn8tlPPOa_NQHuR0YcgcHJu8RP-8HjG4XeDuzVmYJeocTO4Lfq0ScxKeKYDqwisW0GMmYSJ9UFaHCki5hvb-TRvI70ZBHsXuzWOtts_21122urv9MIPCADi_1L35fDLzVU4i8ZGHtzD4eW1gYPCzYeRJYvQMC4o9jSBHa1TCY8"/>
+<img alt="Член команды" class="w-8 h-8 rounded-full border-2 border-white object-cover" data-alt="headshot of a smiling woman with glasses, soft studio lighting, professional corporate look" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFJDiko8G9p21xU8GoZmyf0IWa8TywKdbnWr6gshPcSKc281eEDjoqsrZgK2Kgut6vEZ6fK96L0OUfJliyFKNH_5y8Bk_6W5VHyZThymfj7gIRq753x7GcOOHOeVpodVSOhp1Uf3dZw895-A17luzKETe_AxgGMlnCy5PxsqjcJZmYL_pcOQ8lr5Rnoq9zqizGA40F8NeR-lofTCDIkcbu7esdl9CwH-Huf33dIGwTpOChwBAhvvYSN7rqrdTPIEAPkxwlUdR4BJ4"/>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface-variant text-xs font-label">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+                            12 Окт
+                        </div>
+</div>
+</div>
+</article>
+<!-- Card 2: Done -->
+<article class="bg-surface-container backdrop-blur-[16px] border border-outline-variant rounded-[24px] p-6 shadow-[0_24px_48px_-12px_rgba(139,147,255,0.15)] hover:bg-surface-container-high transition-colors duration-300 flex flex-col group relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-2 bg-secondary rounded-l-[24px] opacity-80"></div>
+<div class="flex justify-between items-start mb-6 pl-2">
+<span class="bg-secondary/20 text-on-secondary-container px-3 py-1 rounded-full text-[13px] font-label uppercase tracking-widest font-semibold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+                        Завершено
+                    </span>
+<button class="text-on-surface-variant hover:text-on-surface transition-colors p-1 rounded-full hover:bg-white/40">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</div>
+<div class="mb-8 pl-2 flex-1">
+<h2 class="font-headline text-xl font-bold text-on-surface mb-2 group-hover:text-secondary-container transition-colors">Маркетинг Q4</h2>
+<p class="text-on-surface-variant text-sm leading-relaxed">Запуск масштабной рекламной кампании к праздничному сезону.</p>
+</div>
+<div class="pl-2 space-y-4">
+<div>
+<div class="flex justify-between text-sm mb-2">
+<span class="text-on-surface font-medium">Прогресс</span>
+<span class="text-on-secondary-container font-bold">100%</span>
+</div>
+<div class="h-2 w-full bg-white/40 rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full w-full"></div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-outline-variant/50">
+<div class="flex -space-x-2">
+<img alt="Член команды" class="w-8 h-8 rounded-full border-2 border-white object-cover" data-alt="portrait of an attractive young man with a slight stubble, warm natural light, casual professional attire" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpliGSmfeSfgKLu-6qHIcki-JU-b6ux9fH_qD_3AwuEf9rIc3Dnx1InHaLrRJC-Pr5GP47ltEHelAgXhCqP6jqrCmD8f3XFEvPZQ-cUX6lZquq_GQ_ei8ih4ELNtIOA35ugBKW0r7eu5CRagy3OegkI99liAi7huxBk1fJ4ZdQ3Vp3HpyAWQWAG2hKDMkszEkg8zk3cZrLBGQk312zw-eMNv8uNPAiwPvTbYZcgqHT4oIbDiWJsAtpMZVUoCLoz5YXQzkJGoVlntM"/>
+<div class="w-8 h-8 rounded-full border-2 border-white bg-surface-dim flex items-center justify-center text-xs font-bold text-on-surface-variant">+2</div>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface-variant text-xs font-label">
+<span class="material-symbols-outlined text-[16px]">done_all</span>
+                            28 Сен
+                        </div>
+</div>
+</div>
+</article>
+<!-- Card 3: Priority / Accent -->
+<article class="bg-surface-container backdrop-blur-[16px] border border-outline-variant rounded-[24px] p-6 shadow-[0_24px_48px_-12px_rgba(139,147,255,0.15)] hover:bg-surface-container-high transition-colors duration-300 flex flex-col group relative overflow-hidden xl:col-span-1 md:col-span-2">
+<div class="absolute inset-0 bg-gradient-to-br from-tertiary-container/30 to-transparent pointer-events-none"></div>
+<div class="absolute left-0 top-0 bottom-0 w-2 bg-secondary-container rounded-l-[24px] opacity-80 z-10"></div>
+<div class="flex justify-between items-start mb-6 pl-2 z-10">
+<span class="bg-secondary-container/40 text-on-tertiary-container px-3 py-1 rounded-full text-[13px] font-label uppercase tracking-widest font-semibold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px]">rocket_launch</span>
+                        В процессе
+                    </span>
+<button class="text-on-surface-variant hover:text-on-surface transition-colors p-1 rounded-full hover:bg-white/40">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</div>
+<div class="mb-8 pl-2 flex-1 z-10">
+<h2 class="font-headline text-2xl font-bold text-on-surface mb-2">Запуск мобильного приложения</h2>
+<p class="text-on-surface-variant text-sm leading-relaxed max-w-md">Финальное тестирование и подготовка к релизу в App Store и Google Play. Критический приоритет.</p>
+</div>
+<div class="pl-2 space-y-4 z-10">
+<div>
+<div class="flex justify-between text-sm mb-2">
+<span class="text-on-surface font-medium">Тестирование</span>
+<span class="text-on-tertiary-container font-bold">85%</span>
+</div>
+<div class="h-2 w-full bg-white/40 rounded-full overflow-hidden">
+<div class="h-full bg-secondary-container rounded-full w-[85%] transition-all duration-1000 ease-out"></div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-outline-variant/50">
+<div class="flex -space-x-2">
+<img alt="Член команды" class="w-8 h-8 rounded-full border-2 border-white object-cover" data-alt="close up portrait of a young professional woman with a soft smile, natural lighting, bright background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqT8pXGRvarXb_1iyb18i2Lem31-B11wscEbPTzHQgD6VBSH0i-WHmSS_DNYNA7HZqJwqx5qn2aTvEoDt3UMjX_FfQXwXeD-hjDHKNm3IJvVvAT-gQAkBHC_JkVbo4DvVEKyAOc98eh_5LeYzkcIfLQ--8axESNnmLKX3Ps_ADPCRup5tvqsQJat1MfUNe9eRkpNY__ediK_4BMQ6fQfroKBnKaXIW28EyBw6mqlgt10rThCtMFN8O6Se1bhzyx-pO3F_riY7y2_4"/>
+<img alt="Член команды" class="w-8 h-8 rounded-full border-2 border-white object-cover" data-alt="portrait of an attractive young man with a slight stubble, warm natural light, casual professional attire" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOS9CDfDbqnAav9a79RRNFRKn4E9AW2u843ClANqUylmoAtgIuclY1-1ihEGaXpv9zV2DuF8mHggzwFJWXERUIJ643sq1fBsO4DJgfgc4-lzXNrNovi-5HlgwEzK8W7mQRBTkhWQ-Fpxcdylq4wqDyJ75WF_ghAtZTHt5iYIE4_qcv2rT6GVi8oWrcayG1WQPUgaVhZQ0tOSkZBnpqZ2X4dImcM7Nhtrnw9nFIJgmdvGbdQfVUanK_SdLmiHBsvAIUfC024emxcvg"/>
+<img alt="Член команды" class="w-8 h-8 rounded-full border-2 border-white object-cover" data-alt="headshot of a smiling woman with glasses, soft studio lighting, professional corporate look" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgkMvZ8MMA6r716fpkm7TMUg3XqVgN7B889lZKI1edkswIVV7huGkH4jt3roNHlQnjf4fGBIeGY-apTbYDmAY7Q5fnFEjadkFPBb3O6qmBz6NVwVb6p3Qh5uo2BsXppzfUAyXF_8GluWvoaWWqL-MsKoVCJQrerYN3pS24YC2rv3UPS5zVB1in4XOQeVtV5G-VOFVhMTqvNfPiqP2f7Opp57gmnsmSeZDR73UlKwcBjfHy13hamm5aDnfEEBvMaeiSHAFPG6qyjtE"/>
+<img alt="Член команды" class="w-8 h-8 rounded-full border-2 border-white object-cover" data-alt="portrait of a confident man standing outdoors, natural sunlight, blurred background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8ZleoXFfaiBwSvnN8oKI1gEZoPNzmVP8eIUlHRwcdqYzxS4WkgYuDUHm2r3r4HWfKN8jCikc5QY3xy9PW0zMv4vbzoBhqHCoz3OjGnNgLTVhMBx-4_S5NxAG8hSsKGtQSuQFNAtMw5dHHx7AMnjMIyRGS3Iog8nK91w7yab1Gcax0_SRbkQNR4XZP_iKR6tW1hG5DgDWgBZUH0PhWrJsgZF_3y-GbypJjugHHTkwIAnHPIZmCS2N6CrmPWrmkf-4ysMQSEkLERqk"/>
+</div>
+<div class="flex items-center gap-1.5 bg-error-container text-on-error-container px-3 py-1 rounded-full text-xs font-label font-bold">
+<span class="material-symbols-outlined text-[16px]">warning</span>
+                            Дедлайн: Завтра
+                        </div>
+</div>
+</div>
+</article>
+</div>
+</main>
+</body></html>

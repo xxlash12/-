@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+<html lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bento Harmony - Вход</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "rgba(255, 255, 255, 0.4)",
+                        "on-secondary-fixed-variant": "#393f8a",
+                        "on-secondary-fixed": "#070c5f",
+                        "on-tertiary": "#2D3250",
+                        "surface": "#F8F9FA",
+                        "inverse-on-surface": "#f1effd",
+                        "primary-container": "rgba(139, 147, 255, 0.1)",
+                        "tertiary": "#FFF1DC",
+                        "on-primary-container": "#3d49f5",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed": "#ffdbcf",
+                        "tertiary-container": "#FFF1DC",
+                        "secondary-fixed-dim": "#bec2ff",
+                        "secondary-container": "#FFD3B6",
+                        "on-surface-variant": "#7077A1",
+                        "on-primary-fixed-variant": "#141fdb",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#380d00",
+                        "on-error": "#ffffff",
+                        "primary-fixed": "#e0e0ff",
+                        "surface-bright": "#ffffff",
+                        "inverse-primary": "#bec2ff",
+                        "surface-container": "rgba(255, 255, 255, 0.6)",
+                        "secondary-fixed": "#e0e0ff",
+                        "on-primary-fixed": "#00036b",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#dad8e6",
+                        "on-tertiary-container": "#2D3250",
+                        "on-secondary-container": "#2D3250",
+                        "surface-tint": "#8B93FF",
+                        "secondary": "#A6E3E9",
+                        "inverse-surface": "#2f303a",
+                        "on-background": "#2D3250",
+                        "primary-fixed-dim": "#bec2ff",
+                        "on-secondary": "#2D3250",
+                        "primary": "#8B93FF",
+                        "outline-variant": "rgba(255, 255, 255, 0.8)",
+                        "tertiary-fixed-dim": "#ffb59b",
+                        "outline": "#7077A1",
+                        "surface-container-high": "rgba(255, 255, 255, 0.8)",
+                        "surface-variant": "rgba(255, 255, 255, 0.5)",
+                        "background": "#F8F9FA",
+                        "surface-container-highest": "#eeecfa",
+                        "on-tertiary-fixed-variant": "#812800",
+                        "error-container": "#ffdad6",
+                        "on-surface": "#2D3250"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {},
+                    "fontFamily": {
+                        "headline": ["Outfit", "sans-serif"],
+                        "body": ["Plus Jakarta Sans", "sans-serif"],
+                        "label": ["Plus Jakarta Sans", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center bg-background font-body text-on-surface relative overflow-hidden">
+<!-- Decorative Background Blurs for Glassmorphism Context -->
+<div class="absolute top-[-10%] left-[-10%] w-[40vw] h-[40vw] bg-primary/20 rounded-full mix-blend-multiply filter blur-[80px] opacity-70"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[35vw] h-[35vw] bg-secondary/30 rounded-full mix-blend-multiply filter blur-[80px] opacity-60"></div>
+<div class="absolute top-[20%] right-[10%] w-[25vw] h-[25vw] bg-tertiary/40 rounded-full mix-blend-multiply filter blur-[60px] opacity-50"></div>
+<!-- Main Glass Card -->
+<div class="relative z-10 w-full max-w-md mx-4 p-8 sm:p-10 bg-surface-container backdrop-blur-[16px] border border-outline-variant rounded-[24px] shadow-[0_24px_48px_-12px_rgba(139,147,255,0.15)]">
+<!-- Header -->
+<div class="text-center mb-8">
+<h1 class="text-3xl font-bold font-headline text-on-tertiary tracking-tight mb-2">Bento Harmony</h1>
+<p class="text-on-surface-variant text-sm font-medium">Добро пожаловать обратно</p>
+</div>
+<!-- Form -->
+<form action="#" class="space-y-6" method="POST">
+<!-- Email Input -->
+<div>
+<label class="block text-[13px] font-semibold text-on-surface-variant uppercase tracking-widest mb-2 font-label" for="email">Электронная почта</label>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 flex items-center pl-4 text-outline material-symbols-outlined">mail</span>
+<input class="w-full pl-12 pr-4 py-3.5 bg-surface-container-lowest border border-outline-variant rounded-xl text-on-surface font-medium transition-shadow duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent placeholder:text-outline/60" id="email" name="email" placeholder="name@example.com" required="" type="email"/>
+</div>
+</div>
+<!-- Password Input -->
+<div>
+<div class="flex justify-between items-center mb-2">
+<label class="block text-[13px] font-semibold text-on-surface-variant uppercase tracking-widest font-label" for="password">Пароль</label>
+<a class="text-sm text-primary hover:text-on-primary-container font-semibold transition-colors duration-200" href="#">Забыли пароль?</a>
+</div>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 flex items-center pl-4 text-outline material-symbols-outlined">lock</span>
+<input class="w-full pl-12 pr-12 py-3.5 bg-surface-container-lowest border border-outline-variant rounded-xl text-on-surface font-medium transition-shadow duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent placeholder:text-outline/60" id="password" name="password" placeholder="••••••••" required="" type="password"/>
+<button aria-label="Toggle password visibility" class="absolute inset-y-0 right-0 flex items-center pr-4 text-outline hover:text-on-surface transition-colors material-symbols-outlined" type="button">
+                        visibility_off
+                    </button>
+</div>
+</div>
+<!-- Submit Button -->
+<div class="pt-2">
+<button class="w-full py-4 px-6 bg-primary text-on-primary font-semibold text-base rounded-full shadow-[0_4px_12px_rgba(139,147,255,0.4)] hover:bg-on-primary-container active:scale-[0.98] transition-all duration-200" type="submit">
+                    Войти
+                </button>
+</div>
+</form>
+<!-- Footer / Sign Up Link -->
+<div class="mt-8 text-center text-sm text-on-surface-variant font-medium">
+            Нет аккаунта? 
+            <a class="text-primary font-semibold hover:text-on-primary-container hover:underline underline-offset-4 transition-colors duration-200 ml-1" href="#">
+                Зарегистрироваться
+            </a>
+</div>
+</div>
+</body></html>

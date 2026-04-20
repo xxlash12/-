@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+
+<html lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Outfit:wght@600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#2D3250",
+                        "primary-container": "rgba(139, 147, 255, 0.1)",
+                        "inverse-on-surface": "#f1effd",
+                        "primary-fixed": "#e0e0ff",
+                        "surface-container-low": "rgba(255, 255, 255, 0.4)",
+                        "surface-bright": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb59b",
+                        "outline-variant": "rgba(255, 255, 255, 0.8)",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#00036b",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-surface": "#2f303a",
+                        "on-tertiary-fixed-variant": "#812800",
+                        "tertiary-fixed": "#ffdbcf",
+                        "outline": "#7077A1",
+                        "surface": "#F8F9FA",
+                        "tertiary": "#FFF1DC",
+                        "primary-fixed-dim": "#bec2ff",
+                        "on-tertiary-container": "#2D3250",
+                        "surface-dim": "#dad8e6",
+                        "secondary-container": "#FFD3B6",
+                        "on-secondary-fixed-variant": "#393f8a",
+                        "secondary-fixed": "#e0e0ff",
+                        "tertiary-container": "#FFF1DC",
+                        "on-error": "#ffffff",
+                        "surface-variant": "rgba(255, 255, 255, 0.5)",
+                        "inverse-primary": "#bec2ff",
+                        "on-surface-variant": "#7077A1",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#eeecfa",
+                        "on-secondary-container": "#2D3250",
+                        "error-container": "#ffdad6",
+                        "on-tertiary": "#2D3250",
+                        "surface-container-high": "rgba(255, 255, 255, 0.8)",
+                        "error": "#ba1a1a",
+                        "on-secondary": "#2D3250",
+                        "surface-container": "rgba(255, 255, 255, 0.6)",
+                        "secondary-fixed-dim": "#bec2ff",
+                        "primary": "#8B93FF",
+                        "on-tertiary-fixed": "#380d00",
+                        "on-primary-container": "#3d49f5",
+                        "on-background": "#2D3250",
+                        "secondary": "#A6E3E9",
+                        "on-primary-fixed-variant": "#141fdb",
+                        "surface-tint": "#8B93FF",
+                        "background": "#F8F9FA",
+                        "on-secondary-fixed": "#070c5f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Outfit", "sans-serif"],
+                        "body": ["Plus Jakarta Sans", "sans-serif"],
+                        "label": ["Plus Jakarta Sans", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        .bento-card {
+            border-radius: 24px;
+            transition: all 0.3s ease;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(139, 147, 255, 0.3);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30">
+<div class="fixed inset-0 -z-10 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-tertiary-fixed via-background to-secondary-fixed opacity-40"></div>
+<div class="flex min-h-screen">
+<!-- Sidebar Navigation -->
+<aside class="hidden md:flex flex-col p-6 gap-2 h-[calc(100vh-2rem)] sticky left-4 top-4 w-72 rounded-[24px] bg-white/60 backdrop-blur-xl border border-white/50 shadow-[0_24px_48px_-12px_rgba(139,147,255,0.15)] z-40">
+<div class="flex items-center gap-3 mb-8 px-2">
+<div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center shadow-[0_4px_12px_rgba(139,147,255,0.4)]">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">dataset</span>
+</div>
+<div>
+<h1 class="font-headline font-bold text-xl text-[#2D3250] tracking-tight">Bento Harmony</h1>
+<p class="text-[12px] text-outline font-medium">Пространство задач</p>
+</div>
+</div>
+<nav class="flex-1 space-y-2">
+<!-- Active Item: Дашборд -->
+<a class="flex items-center gap-4 px-4 py-3 bg-[#8B93FF]/10 text-[#8B93FF] font-semibold rounded-2xl shadow-sm hover:translate-x-1 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[15px] tracking-wide">Дашборд</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-[#7077A1] hover:bg-white/40 hover:translate-x-1 rounded-2xl transition-all duration-300" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="text-[15px] tracking-wide">Календарь</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-[#7077A1] hover:bg-white/40 hover:translate-x-1 rounded-2xl transition-all duration-300" href="#">
+<span class="material-symbols-outlined">checklist</span>
+<span class="text-[15px] tracking-wide">Задачи</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-[#7077A1] hover:bg-white/40 hover:translate-x-1 rounded-2xl transition-all duration-300" href="#">
+<span class="material-symbols-outlined">folder_open</span>
+<span class="text-[15px] tracking-wide">Проекты</span>
+</a>
+</nav>
+<button class="mt-auto bg-primary text-white py-4 px-6 rounded-2xl font-bold flex items-center justify-center gap-2 shadow-[0_4px_12px_rgba(139,147,255,0.4)] active:scale-95 transition-transform">
+<span class="material-symbols-outlined">add</span>
+                Добавить задачу
+            </button>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 px-8 pt-8 pb-12">
+<!-- Top App Bar -->
+<header class="flex justify-between items-center w-full mb-10 h-20">
+<div>
+<h2 class="text-3xl font-headline font-extrabold tracking-tight text-on-surface">Дашборд</h2>
+<p class="text-outline-variant font-medium text-sm mt-1">Сегодня 12 Октября, 2023</p>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2 glass-panel px-4 py-2 rounded-2xl border-outline-variant shadow-sm">
+<span class="material-symbols-outlined text-outline">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm text-on-surface w-48" placeholder="Поиск..." type="text"/>
+</div>
+<div class="flex gap-3">
+<button class="w-11 h-11 flex items-center justify-center glass-panel rounded-xl text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="w-11 h-11 flex items-center justify-center glass-panel rounded-xl text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<img alt="Avatar" class="w-11 h-11 rounded-xl object-cover border-2 border-white shadow-sm" data-alt="professional portrait of a young woman with a friendly expression in soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBevZCJ2e9gX_Vls7rmKFiQrnTB0yr2lfJnhRzkyeUT8WKurY5mayAvj3e-GwSWKVs3NzH43y6ZQDlTEE-m5H11rMCm-nmqtdr-Z-kSeP7adoVVVf9dHQXX3eBsbDOQzhiozQBWNYQA59Q75-DUlokNPd5gi9kAsZJdaAY-WvqxBz8H_izJGY9DtvJ-mZ7jr5Vf_oqW-fFI6n0CKeiCo0XsINSZHdQ-rXUFIO9pdjEwjq41bnGOb7-em5_iBt6-SoT8GM8yjnQsZjA"/>
+</div>
+</div>
+</header>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Focus Ring Card (Deep Work) -->
+<div class="col-span-12 lg:col-span-4 glass-panel bento-card p-8 flex flex-col items-center justify-center shadow-[0_24px_48px_-12px_rgba(139,147,255,0.15)]">
+<div class="w-full flex justify-between items-start mb-6">
+<h3 class="font-headline font-semibold text-lg">Кольцо фокуса</h3>
+<span class="material-symbols-outlined text-primary">bolt</span>
+</div>
+<div class="relative w-48 h-48 flex items-center justify-center mb-8">
+<!-- Progress Track -->
+<svg class="w-full h-full transform -rotate-90">
+<circle cx="96" cy="96" fill="transparent" r="84" stroke="rgba(139, 147, 255, 0.1)" stroke-width="12"></circle>
+<circle cx="96" cy="96" fill="transparent" r="84" stroke="#8B93FF" stroke-dasharray="527" stroke-dashoffset="180" stroke-linecap="round" stroke-width="12"></circle>
+</svg>
+<div class="absolute flex flex-col items-center">
+<span class="text-4xl font-headline font-extrabold">2:14</span>
+<span class="text-[13px] text-outline uppercase tracking-wider font-bold">Осталось</span>
+</div>
+</div>
+<div class="text-center">
+<p class="font-semibold text-on-surface">3ч Deep Work</p>
+<p class="text-sm text-on-surface-variant">Вы в зоне фокуса уже 46 минут</p>
+</div>
+<button class="mt-8 w-full py-3 bg-primary-container text-primary font-bold rounded-xl hover:bg-primary hover:text-white transition-all duration-300">
+                        Пауза
+                    </button>
+</div>
+<!-- Priority Tasks List -->
+<div class="col-span-12 lg:col-span-8 glass-panel bento-card p-8 shadow-[0_24px_48px_-12px_rgba(139,147,255,0.15)]">
+<div class="flex justify-between items-center mb-8">
+<div>
+<h3 class="font-headline font-semibold text-xl">Приоритетные задачи</h3>
+<p class="text-sm text-outline-variant">3 важные задачи на сегодня</p>
+</div>
+<button class="text-primary font-bold text-sm hover:underline">Смотреть все</button>
+</div>
+<div class="space-y-4">
+<!-- Task Item -->
+<div class="flex items-center gap-4 p-4 rounded-2xl bg-white/40 hover:bg-white/80 transition-all group cursor-pointer border border-transparent hover:border-white/60">
+<div class="w-1.5 h-12 bg-primary rounded-full"></div>
+<div class="flex-1">
+<h4 class="font-bold text-on-surface">Редизайн главного экрана</h4>
+<p class="text-sm text-on-surface-variant">Проект: Bento Harmony • Дедлайн: 18:00</p>
+</div>
+<div class="flex -space-x-2">
+<img alt="Team member" class="w-8 h-8 rounded-full border-2 border-white" data-alt="close-up portrait of a young creative man with glasses in a modern studio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAw5_HhssLJF7uB_WOE1vdOFlgyGbZQuMlHYOljsWcETn9QgrqnvpMYShS1L8XY-kM5qWvK9mR2y1c1EZcU2wC0KQ5L7VssijJT7H1E8W13UqMJywU6quTW9fFmcepUMfUpiZRir8Kb7FlRDEzhQPgjJ6KUHiCyDHL9Mawaxt5SGFUzQfct8uPiDu_4n3Kirg9-lTGhXkwUO-AIR3xLG3ng9NZYYL3tEOek8aof8G-d1VgVf_b4vpsNAk6dyHJRw7kOEFsZEb6cpjU"/>
+<img alt="Team member" class="w-8 h-8 rounded-full border-2 border-white" data-alt="vibrant portrait of a smiling woman with curly hair" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWDwRVa5kx5inERqNU2LsbP6b1N5vCp-E5rVHWM1zK6Xn9FY9BP_kl6m_FcIIxxj9kg7G-AMgOxfmWsunXaMK1hzjIdNrmrUKK6D5x3nPyOsLWHjuAO92Rnd84_sg57QmNeruhi3A346I1uaDd_pP8TOy-i5QyPph-db2HV9pxqP5iRjCsql6UQiYQbm0Wh6T03ECz5eneHpfXoKoHK3MMsYhmsz304LryuCagH4jaKu1rvvlQ0ubGAlBBCGtM50yHS6rsyNjut-M"/>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">chevron_right</span>
+</div>
+<div class="flex items-center gap-4 p-4 rounded-2xl bg-white/40 hover:bg-white/80 transition-all group cursor-pointer border border-transparent hover:border-white/60">
+<div class="w-1.5 h-12 bg-secondary rounded-full"></div>
+<div class="flex-1">
+<h4 class="font-bold text-on-surface">Синхронизация с отделом маркетинга</h4>
+<p class="text-sm text-on-surface-variant">Проект: Запуск Q4 • 14:30 - 15:30</p>
+</div>
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container text-[12px] font-bold rounded-lg uppercase tracking-wider">Звонок</span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">chevron_right</span>
+</div>
+<div class="flex items-center gap-4 p-4 rounded-2xl bg-white/40 hover:bg-white/80 transition-all group cursor-pointer border border-transparent hover:border-white/60">
+<div class="w-1.5 h-12 bg-tertiary-fixed-dim rounded-full"></div>
+<div class="flex-1">
+<h4 class="font-bold text-on-surface">Подготовка отчета по метрикам</h4>
+<p class="text-sm text-on-surface-variant">Проект: Аналитика • Дедлайн: Завтра</p>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Today's Timeline -->
+<div class="col-span-12 lg:col-span-7 glass-panel bento-card p-8 shadow-[0_24px_48px_-12px_rgba(139,147,255,0.15)]">
+<div class="flex justify-between items-center mb-8">
+<h3 class="font-headline font-semibold text-xl">Расписание сегодня</h3>
+<div class="flex gap-2">
+<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-white/50 text-outline"><span class="material-symbols-outlined text-sm">chevron_left</span></button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-white/50 text-outline"><span class="material-symbols-outlined text-sm">chevron_right</span></button>
+</div>
+</div>
+<div class="relative space-y-8 before:content-[''] before:absolute before:left-[15px] before:top-2 before:bottom-2 before:w-[2px] before:bg-primary/20">
+<!-- Timeline Point -->
+<div class="relative flex gap-4">
+<div class="w-8 flex justify-center shrink-0 mt-1.5 z-10">
+<div class="w-6 h-6 rounded-full bg-white border-4 border-primary"></div>
+</div>
+<div class="flex-1 flex justify-between items-start">
+<div>
+<span class="text-[12px] font-bold text-primary uppercase tracking-widest block mb-1">09:00 - 10:30</span>
+<h4 class="font-bold text-lg">Ежедневный митап</h4>
+<p class="text-on-surface-variant text-sm">Конференц-зал "Альфа" • Обсуждение текущего спринта</p>
+</div>
+<div class="w-12 h-12 rounded-xl bg-primary-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">groups</span>
+</div>
+</div>
+</div>
+<div class="relative flex gap-4">
+<div class="w-8 flex justify-center shrink-0 mt-1.5 z-10">
+<div class="w-5 h-5 rounded-full bg-white border-2 border-outline/30"></div>
+</div>
+<div class="flex-1 flex justify-between items-start opacity-60">
+<div>
+<span class="text-[12px] font-bold text-outline uppercase tracking-widest block mb-1">11:00 - 12:00</span>
+<h4 class="font-bold text-lg">Глубокая работа</h4>
+<p class="text-on-surface-variant text-sm">Дизайн документация • Фокус на UX</p>
+</div>
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-outline">
+<span class="material-symbols-outlined">psychology</span>
+</div>
+</div>
+</div>
+<div class="relative flex gap-4">
+<div class="w-8 flex justify-center shrink-0 mt-1.5 z-10">
+<div class="w-5 h-5 rounded-full bg-white border-2 border-outline/30"></div>
+</div>
+<div class="flex-1 flex justify-between items-start opacity-60">
+<div>
+<span class="text-[12px] font-bold text-outline uppercase tracking-widest block mb-1">13:00 - 14:00</span>
+<h4 class="font-bold text-lg">Обед с командой</h4>
+<p class="text-on-surface-variant text-sm">Lobby Bar • Неформальное общение</p>
+</div>
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-outline">
+<span class="material-symbols-outlined">restaurant</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Mini Calendar Widget -->
+<div class="col-span-12 lg:col-span-5 glass-panel bento-card p-8 shadow-[0_24px_48px_-12px_rgba(139,147,255,0.15)] flex flex-col cursor-pointer hover:shadow-lg transition-all">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline font-semibold text-xl">Октябрь 2023</h3>
+<span class="material-symbols-outlined text-primary">calendar_month</span>
+</div>
+<div class="grid grid-cols-7 gap-2 mb-4">
+<span class="text-center text-[11px] font-bold text-outline uppercase">Пн</span>
+<span class="text-center text-[11px] font-bold text-outline uppercase">Вт</span>
+<span class="text-center text-[11px] font-bold text-outline uppercase">Ср</span>
+<span class="text-center text-[11px] font-bold text-outline uppercase">Чт</span>
+<span class="text-center text-[11px] font-bold text-outline uppercase">Пт</span>
+<span class="text-center text-[11px] font-bold text-outline uppercase">Сб</span>
+<span class="text-center text-[11px] font-bold text-outline uppercase">Вс</span>
+<!-- Empty slots -->
+<span></span><span></span><span></span><span></span><span></span>
+<span class="text-center py-2 text-sm font-medium text-outline-variant">1</span>
+<span class="text-center py-2 text-sm font-medium text-outline-variant">2</span>
+<span class="text-center py-2 text-sm font-medium">3</span>
+<span class="text-center py-2 text-sm font-medium">4</span>
+<span class="text-center py-2 text-sm font-medium">5</span>
+<span class="text-center py-2 text-sm font-medium">6</span>
+<span class="text-center py-2 text-sm font-medium">7</span>
+<span class="text-center py-2 text-sm font-medium">8</span>
+<span class="text-center py-2 text-sm font-medium">9</span>
+<span class="text-center py-2 text-sm font-medium">10</span>
+<span class="text-center py-2 text-sm font-medium">11</span>
+<!-- Today -->
+<span class="text-center py-2 text-sm font-bold bg-primary text-white rounded-xl shadow-[0_4px_12px_rgba(139,147,255,0.4)]">12</span>
+<span class="text-center py-2 text-sm font-medium">13</span>
+<span class="text-center py-2 text-sm font-medium relative before:content-[''] before:absolute before:bottom-1 before:left-1/2 before:-translate-x-1/2 before:w-1 before:h-1 before:bg-primary before:rounded-full">14</span>
+<span class="text-center py-2 text-sm font-medium">15</span>
+<span class="text-center py-2 text-sm font-medium">16</span>
+<span class="text-center py-2 text-sm font-medium">17</span>
+<span class="text-center py-2 text-sm font-medium">18</span>
+<span class="text-center py-2 text-sm font-medium relative before:content-[''] before:absolute before:bottom-1 before:left-1/2 before:-translate-x-1/2 before:w-1 before:h-1 before:bg-secondary before:rounded-full">19</span>
+</div>
+<div class="mt-auto pt-6 border-t border-white/40">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container text-sm" style="font-variation-settings: 'FILL' 1;">event</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold">Событие завтра</p>
+<p class="text-[12px] text-on-surface-variant">Презентация прототипа в 10:00</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Mobile Navigation Bar -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 h-20 bg-white/60 backdrop-blur-xl border-t border-white/50 flex justify-around items-center z-50 px-4">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="text-[10px] font-bold">Дашборд</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-outline" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="text-[10px] font-medium">Календарь</span>
+</a>
+<div class="w-12 h-12 bg-primary rounded-2xl flex items-center justify-center text-white -mt-10 shadow-lg border-4 border-background">
+<span class="material-symbols-outlined">add</span>
+</div>
+<a class="flex flex-col items-center gap-1 text-outline" href="#">
+<span class="material-symbols-outlined">checklist</span>
+<span class="text-[10px] font-medium">Задачи</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-outline" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Профиль</span>
+</a>
+</nav>
+</body></html>
